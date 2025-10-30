@@ -34,7 +34,6 @@ def main():
 
     # randomly draw states
     initial_states = rng.choice((0,1,2), N, p=psi_0)
-    breakpoint()
     
     # create people
     people = []
@@ -52,10 +51,13 @@ def main():
     # get results
     final_states = [person.state for person in people]
 
-    # plot histogram
+    # plot histogram (cross sectional at last time step)
     sns.histplot(final_states)
     plt.show()
 
+    # plot histogram (time series)
+    sns.histplot(people[1].history)
+    plt.show()
 
 
 if __name__=='__main__':
